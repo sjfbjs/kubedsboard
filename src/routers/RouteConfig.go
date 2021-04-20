@@ -6,9 +6,9 @@ import (
 )
 
 type RouterConfig struct {
-	Goft          *goft.Goft `inject:"-"`
-	DeploymentCtl *controllers.DeploymentCtl
-	PodCtl        *controllers.PodCtl
+	Goft          *goft.Goft                 `inject:"-"`
+	DeploymentCtl *controllers.DeploymentCtl `inject:"-"`
+	PodCtl        *controllers.PodCtl        `inject:"-"`
 	//IndexClass * `inject:"-"`
 }
 
