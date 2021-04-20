@@ -6,12 +6,9 @@ import (
 	"github.com/shenyisyn/goft-gin/goft"
 )
 
-func main()  {
+func main() {
 
 	//configure注解
 	goft.Ignite().Config(configs.NewK8SConfig()).Mount(
-		"v1",controllers.NewDeploymentCtl()).Launch()
-
+		"v1", controllers.NewDeploymentCtl()).Launch()
 }
-
-
