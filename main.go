@@ -10,5 +10,6 @@ func main() {
 
 	//configure注解
 	goft.Ignite().Config(configs.NewK8SConfig()).Mount(
-		"v1", controllers.NewDeploymentCtl()).Launch()
+		"v1", controllers.NewDeploymentCtl()).Config().Launch()
+	//goft.Ignite().Config(configs.NewK8SConfig()).Mount("v1").Config(routers.NewRouterConfig()).Launch()
 }

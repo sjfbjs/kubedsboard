@@ -1,4 +1,4 @@
-package configs
+package routers
 
 import (
 	"gindashboard/src/controllers"
@@ -6,8 +6,9 @@ import (
 )
 
 type RouterConfig struct {
-	Goft *goft.Goft `inject:"-"`
-	ctl  *controllers.DeploymentCtl
+	Goft          *goft.Goft `inject:"-"`
+	DeploymentCtl *controllers.DeploymentCtl
+	PodCtl        *controllers.PodCtl
 	//IndexClass * `inject:"-"`
 }
 
@@ -15,7 +16,8 @@ func NewRouterConfig() *RouterConfig {
 	return &RouterConfig{}
 }
 func (this *RouterConfig) DeploymentsRoutes() interface{} {
-	this.Goft.Handle("GET", "/deployments", this.ctl.GetList)
+	this.Goft.Handle("GET", "/deployments", this.DeploymentCtl.GetList)
+	this.Goft.Handle("GET", "/pods", this.PodCtl.GetList)
 	//this.Goft.Handle("GET", "/b", this.IndexClass.TestA)
 	return goft.Empty
 }
